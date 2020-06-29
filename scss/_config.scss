@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+$main-transparent: #615b5bf6;
+$light-grey: #746a6a;
+$dark-grey: #2e2a2a;
+$main-green: #568a2c;
+
+@mixin transition-ease {
+  transition: all 0.3s ease-out;
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+@include keyframes(renderContent) {
+  from {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@mixin media-sm {
+  @media screen and (min-width: 500px) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media screen and (min-width: 800px) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media screen and (min-width: 1124px) {
+    @content;
+  }
+}
+
+@mixin media-xlg {
+  @media screen and (min-width: 1366px) {
+    @content;
+  }
+}

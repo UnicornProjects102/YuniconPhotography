@@ -1,0 +1,147 @@
+.photos {
+  width: 100vw;
+  padding-top: 4rem;
+  background-color: $dark-grey;
+  @include animation("renderContent 1s");
+  position: relative;
+
+  &__header {
+    text-align: center;
+    z-index: 1;
+  }
+
+  &__underlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000000e7;
+    z-index: 1;
+    visibility: hidden;
+
+    &.show {
+      visibility: visible;
+    }
+  }
+
+  .filter-list {
+    padding-top: 1.5rem;
+    height: 4rem;
+
+    &__item {
+      display: inline;
+      padding: 0 1rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.3rem;
+      cursor: pointer;
+      @include transition-ease;
+
+      &:hover {
+        background-color: $main-green;
+      }
+
+      &:active {
+        background-color: $main-green;
+      }
+    }
+  }
+
+  &__content {
+    background-image: url(/dist/photos/background-test.png);
+    background-position: center;
+    min-height: 100vh;
+  }
+}
+
+.go-up {
+  bottom: 2rem;
+  margin-left: 45vw;
+  position: absolute;
+
+  a {
+    color: $light-grey;
+    font-size: 4rem;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.photos-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 600vh;
+  width: 100%;
+  position: relative;
+
+  .photo {
+    width: 50vw;
+    height: 15rem;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    @include animation("renderContent 1s");
+
+    &.clicked {
+      @include transition-ease;
+    }
+
+    &__overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      font-size: 1.8rem;
+      color: #504d4dd2;
+      visibility: hidden;
+
+      &.show {
+        visibility: visible;
+      }
+
+      .exit-gallery {
+        position: fixed;
+        top: 10%;
+        right: 1rem;
+      }
+    }
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      display: block;
+
+      &.show-photo-in-gallery {
+        object-fit: contain;
+        height: inherit;
+        width: 100%;
+      }
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &.show-in-gallery {
+      width: 100vw;
+      height: 100%;
+      top: 0;
+      position: fixed;
+      z-index: 3;
+      opacity: 1;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

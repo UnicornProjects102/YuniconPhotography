@@ -1,0 +1,144 @@
+@import "config";
+@import "home";
+@import "about";
+@import "portfolio";
+@import "photos";
+@import "contact";
+@import "responsive";
+
+.main {
+  background-color: $dark-grey;
+}
+
+nav {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 1rem;
+  width: 100vw;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: $light-grey;
+  align-items: center;
+
+  .nav-title {
+    font-family: "Nova Slim", cursive;
+    padding-bottom: 0.5rem;
+
+    .one {
+      color: #ffffff;
+      font-size: 2rem;
+      letter-spacing: 5px;
+      position: absolute;
+      z-index: 0;
+      bottom: 0.8rem;
+    }
+
+    .two {
+      position: absolute;
+      padding-top: 0.2rem;
+      padding-left: 0.7rem;
+      color: rgba(0, 0, 0, 0.705);
+    }
+  }
+
+  .nav-icon {
+    font-size: 2rem;
+    margin-top: 0.6rem;
+    z-index: 2;
+    color: $dark-grey;
+    cursor: pointer;
+  }
+
+  .nav-menu {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: $main-transparent;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    @include transition-ease;
+
+    &.open {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &__items {
+      line-height: 2rem;
+      list-style: none;
+      text-align: center;
+
+      &--item > a {
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.8rem;
+
+        &:hover {
+          background-color: $main-green;
+        }
+      }
+
+      &--item {
+        opacity: 0;
+        @include transition-ease;
+
+        &.active {
+          background-color: $main-green;
+        }
+
+        &.open {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@for $i from 1 through 5 {
+  .nav-menu__items--item:nth-child(#{$i}) {
+    transition-delay: ($i * 0.1s) + 0.15s;
+  }
+}
+
+.footer {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 2rem;
+  bottom: 0;
+  left: 0;
+  background: $light-grey;
+  padding: 0 0.5rem;
+  font-size: 1.1rem;
+  color: $dark-grey;
+
+  &__link {
+    display: flex;
+    align-items: center;
+
+    &--link {
+      color: $dark-grey;
+      text-decoration: none;
+      padding-left: 0.2rem;
+      text-transform: uppercase;
+      font-size: 1rem;
+      @include transition-ease;
+
+      &:hover {
+        background-color: $main-green;
+      }
+    }
+  }
+}

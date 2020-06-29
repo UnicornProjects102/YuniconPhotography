@@ -1,0 +1,125 @@
+.portfolio {
+  padding-top: 4rem;
+  padding-bottom: 1.5rem;
+  width: 100vw;
+  height: 100%;
+  background-color: $dark-grey;
+  @include animation("renderContent 1s");
+
+  &__header {
+    text-align: center;
+    padding: 1rem 0rem;
+    font-size: 1.3rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: column wrap;
+
+    &--item {
+      width: 80vw;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0.5rem 0;
+      box-shadow: 0px 0px 18px 0px #00000080;
+      @include transition-ease;
+      position: relative;
+
+      .item-info {
+        background: linear-gradient(to bottom, #00000094, #000000ed);
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        color: #ffffffc5;
+        padding: 1rem;
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        justify-content: center;
+
+        p {
+          font-size: 1.3rem;
+          max-width: 20rem;
+        }
+      }
+
+      .item-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #ffffff18;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        @include transition-ease;
+
+        i {
+          font-size: 2rem;
+          color: $dark-grey;
+          cursor: pointer;
+          @include transition-ease;
+
+          &:hover {
+            transform: scale(1.4);
+          }
+        }
+      }
+
+      &:hover .item-info {
+        opacity: 0;
+      }
+
+      &:hover .item-overlay {
+        opacity: 1;
+      }
+
+      &.right {
+        align-self: flex-end;
+        border-radius: 20px 0px 0px 20px;
+
+        &:hover {
+          transform: translateX(-2.5rem);
+          border-radius: 20px 20px 20px 20px;
+        }
+      }
+
+      &.left {
+        align-self: flex-start;
+        border-radius: 0px 20px 20px 0px;
+
+        &:hover {
+          transform: translateX(2.5rem);
+          border-radius: 20px 20px 20px 20px;
+        }
+      }
+
+      &.one {
+        background-image: url(/dist/photos/home8.jpg);
+      }
+
+      &.two {
+        background-image: url(/dist/photos/home1.jpg);
+      }
+
+      &.three {
+        background-image: url(/dist/photos/home5.jpg);
+      }
+
+      &.four {
+        background-image: url(/dist/photos/home10.jpg);
+      }
+
+      &.five {
+        background-image: url(/dist/photos/home3.jpg);
+      }
+
+      &.six {
+        background-image: url(/dist/photos/home14.jpg);
+      }
+    }
+  }
+}

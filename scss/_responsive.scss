@@ -1,0 +1,111 @@
+@include media-sm {
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .grid-item .see-more {
+    min-height: 13rem;
+  }
+
+  .about .about__header {
+    height: 50vh;
+  }
+
+  .photos .go-up {
+    position: fixed;
+    visibility: hidden;
+
+    &.show {
+      visibility: visible;
+    }
+  }
+}
+
+@include media-md {
+  .grid-item .see-more {
+    min-height: 21.2rem;
+  }
+
+  .about .about__header {
+    height: 55vh;
+    width: 70%;
+    background-position: center;
+    background-image: radial-gradient(circle, #2e2a2a96 67%, #2e2a2a 87%),
+      url(/dist/photos/about.jpg);
+  }
+
+  .about .about__content {
+    width: 80vw;
+  }
+
+  .portfolio__header {
+    font-size: 1.5rem;
+  }
+
+  .portfolio__content--item {
+    width: 60vw;
+    height: 13rem;
+  }
+
+  .photos__content .photos-container {
+    height: 340vh;
+
+    .photo {
+      width: 25vw;
+      height: 18rem;
+
+      &.show-in-gallery {
+        height: 100vh;
+        width: 100vw;
+
+        justify-content: center;
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+    }
+  }
+
+  .contact .contact__content {
+    flex-flow: row;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .contact__content--info iframe {
+    width: 20rem;
+    height: 16rem;
+  }
+}
+
+@include media-lg {
+  .photos__content .photos-container {
+    height: 390vh;
+
+    .photo {
+      width: 25vw;
+      height: 22rem;
+    }
+  }
+
+  .grid-item .see-more {
+    min-height: 20rem;
+
+    a {
+      font-size: 2.5rem;
+      display: flex;
+      align-items: center;
+
+      i {
+        padding-left: 0.5rem;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .grid .grid-sizer,
+  .grid-item {
+    width: 33.333%;
+  }
+}
